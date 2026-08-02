@@ -409,10 +409,10 @@ custom:
       push: true
 
   periods:
-    test_push:
+    test_final:
       name: "临时测试窗口"
-      start: "01:19"
-      end: "01:40"
+      start: "01:26"
+      end: "01:50"
       collect: true
       analyze: true
       ai_mode: "current"
@@ -469,9 +469,9 @@ custom:
 
   day_plans:
     workday:
-      periods: ["test_push", "morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment"]
+      periods: ["test_final", "morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment"]
     weekend:
-      periods: ["test_push", "morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment"]
+      periods: ["test_final", "morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment"]
 
   week_map:
     1: "workday"
