@@ -395,42 +395,63 @@ presets:
 #     其余时间走默认配置（静默采集）
 
 custom:
-  name: "自定义-增量定时"
-  description: "增量模式+定点推送：早9:00 / 午12:00 / 盘后17:00"
+  name: "自定义-增量定时-省流量"
+  description: "增量+定点(8:30/12:30/18:30)，仅推送时段前后采集，夜间零采集省空间"
 
   default:
-    collect: true                  # 全天持续采集
-    analyze: false                 # 非窗口不分析
+    collect: false                 # 非采集时段不抓取（夜间零采集）
+    analyze: false
     ai_mode: "current"
-    push: false                    # 非窗口不推送
+    push: false
     report_mode: "current"
     once:
       analyze: true
-      push: true                   # 窗口内只推一次
+      push: true
 
   periods:
+    morning_collect:
+      name: "早间采集"
+      start: "08:00"
+      end: "08:20"
+      collect: true                # 推送前采集，供增量检测
+
     morning_increment:
-      name: "早间增量"
+      name: "早间增量推送"
       start: "08:21"
       end: "08:40"
+      collect: true
       analyze: true
       ai_mode: "incremental"
       push: true
       report_mode: "incremental"
+
+    noon_collect:
+      name: "午间采集"
+      start: "12:00"
+      end: "12:20"
+      collect: true
 
     noon_increment:
-      name: "午间增量"
-      start: "12:11"
-      end: "12:30"
+      name: "午间增量推送"
+      start: "12:21"
+      end: "12:40"
+      collect: true
       analyze: true
       ai_mode: "incremental"
       push: true
       report_mode: "incremental"
 
+    evening_collect:
+      name: "盘前采集"
+      start: "18:00"
+      end: "18:20"
+      collect: true
+
     closing_increment:
-      name: "盘后增量"
+      name: "盘后增量推送"
       start: "18:21"
       end: "18:40"
+      collect: true
       analyze: true
       ai_mode: "incremental"
       push: true
@@ -438,9 +459,9 @@ custom:
 
   day_plans:
     workday:
-      periods: ["morning_increment", "noon_increment", "closing_increment"]
+      periods: ["morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment"]
     weekend:
-      periods: ["morning_increment", "noon_increment", "closing_increment"]
+      periods: ["morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment"]
 
   week_map:
     1: "workday"
