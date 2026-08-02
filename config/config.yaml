@@ -153,9 +153,6 @@ rss:
       enabled: false                  # 禁用
       # max_age_days: 3               # 示例：推送 3 天内的文章（更新较慢的博客）
      
-    - id: "yahoo-finance"
-      name: "雅虎财经"
-      url: "https://finance.yahoo.com/news/rssindex"
 
     # 自定义源示例
     # - id: "custom-feed"
@@ -456,7 +453,7 @@ ai_analysis:
 # 对推送标题进行翻译，不包含 AI 分析的内容
 # ===============================================================
 ai_translation:
-  enabled: true                     # 是否启用翻译功能（true=启用, false=关闭）
+  enabled: false                     # 是否启用翻译功能（true=启用, false=关闭）—— 2026-08-03 关闭 AI 翻译（用户不需要外文新闻）
   language: "中文"                   # 翻译目标语言（如 "English", "Korean", "法语"）
   prompt_file: "ai_translation_prompt.txt"   # 提示词文件（相对于 config 目录）
 

@@ -411,8 +411,8 @@ custom:
   periods:
     morning_increment:
       name: "早间增量"
-      start: "08:45"
-      end: "09:30"
+      start: "08:21"
+      end: "08:40"
       analyze: true
       ai_mode: "incremental"
       push: true
@@ -420,7 +420,7 @@ custom:
 
     noon_increment:
       name: "午间增量"
-      start: "11:45"
+      start: "12:11"
       end: "12:30"
       analyze: true
       ai_mode: "incremental"
@@ -429,8 +429,8 @@ custom:
 
     closing_increment:
       name: "盘后增量"
-      start: "16:45"
-      end: "17:30"
+      start: "18:21"
+      end: "18:40"
       analyze: true
       ai_mode: "incremental"
       push: true
