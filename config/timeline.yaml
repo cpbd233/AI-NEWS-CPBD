@@ -412,13 +412,13 @@ custom:
     morning_collect:
       name: "早间采集"
       start: "08:00"
-      end: "08:20"
+      end: "08:14"
       collect: true                # 推送前采集，供增量检测
 
     morning_increment:
       name: "早间增量推送"
-      start: "08:21"
-      end: "08:40"
+      start: "08:15"
+      end: "09:30"
       collect: true
       analyze: true
       ai_mode: "incremental"
@@ -428,13 +428,13 @@ custom:
     noon_collect:
       name: "午间采集"
       start: "12:00"
-      end: "12:20"
+      end: "12:14"
       collect: true
 
     noon_increment:
       name: "午间增量推送"
-      start: "12:21"
-      end: "12:40"
+      start: "12:15"
+      end: "13:30"
       collect: true
       analyze: true
       ai_mode: "incremental"
@@ -444,13 +444,13 @@ custom:
     evening_collect:
       name: "盘前采集"
       start: "20:30"
-      end: "20:50"
+      end: "20:44"
       collect: true
 
     closing_increment:
       name: "盘后增量推送"
-      start: "20:51"
-      end: "21:10"
+      start: "20:45"
+      end: "22:00"
       collect: true
       analyze: true
       ai_mode: "incremental"
