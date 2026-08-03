@@ -93,9 +93,6 @@ platforms:
     - id: "weibo"
       name: "微博"
       expected_domain: "weibo.com"
-    - id: "douyin"
-      name: "抖音"
-      expected_domain: "douyin.com"
     - id: "zhihu"
       name: "知乎"
       expected_domain: "zhihu.com"
@@ -434,7 +431,8 @@ ai_analysis:
                                     # follow_report = 跟随 report.mode（默认）
                                     # daily / current / incremental = 强制使用指定模式
 
-  max_news_for_analysis: 150        # 参与分析的新闻数量上限（控制 token 成本的关键项）
+  max_news_for_analysis: 100        # 参与分析的新闻数量上限（控制 token 成本的关键项）
+                                    # 2026-08-04 精简：150→100，配合精简版 prompt 控制分析长度
                                     # 热榜优先占用配额，RSS 用剩余配额，独立展示区不受此限制
 
   include_rss: false                # 是否包含 RSS 内容进行分析（true=包含, false=不包含）
