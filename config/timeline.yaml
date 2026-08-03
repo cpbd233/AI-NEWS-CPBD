@@ -457,11 +457,21 @@ custom:
       push: true
       report_mode: "incremental"
 
+    ai_fix_test_20260804:
+      name: "AI修复验证"
+      start: "00:00"
+      end: "02:00"
+      collect: true
+      analyze: true
+      ai_mode: "incremental"
+      push: true
+      report_mode: "incremental"
+
   day_plans:
     workday:
-      periods: ["morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment"]
+      periods: ["morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment", "ai_fix_test_20260804"]
     weekend:
-      periods: ["morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment"]
+      periods: ["morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment", "ai_fix_test_20260804"]
 
   week_map:
     1: "workday"
