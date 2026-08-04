@@ -411,14 +411,14 @@ custom:
   periods:
     morning_collect:
       name: "早间采集"
-      start: "08:00"
-      end: "08:14"
+      start: "08:25"                  # 2026-08-04 08:00→08:25：紧贴推送窗口前采集
+      end: "08:39"
       collect: true                # 推送前采集，供增量检测
 
     morning_increment:
       name: "早间增量推送"
-      start: "08:15"
-      end: "08:35"                    # 2026-08-04 09:30→08:35：cron-job.org 准点触发后缩回 20 分钟窄窗口，目标 8:30
+      start: "08:40"
+      end: "09:00"                    # 2026-08-04 目标 8:50，窗口 08:40-09:00
       collect: true
       analyze: true
       ai_mode: "incremental"
@@ -427,14 +427,14 @@ custom:
 
     noon_collect:
       name: "午间采集"
-      start: "12:00"
-      end: "12:14"
+      start: "11:45"                  # 2026-08-04 12:00→11:45：紧贴推送窗口前采集（避免与 12:00 推送重叠）
+      end: "11:59"
       collect: true
 
     noon_increment:
       name: "午间增量推送"
-      start: "12:15"
-      end: "12:35"                    # 2026-08-04 13:30→12:35：缩回 20 分钟窄窗口，目标 12:30
+      start: "12:00"
+      end: "12:20"                    # 2026-08-04 目标 12:00，窗口 12:00-12:20
       collect: true
       analyze: true
       ai_mode: "incremental"
