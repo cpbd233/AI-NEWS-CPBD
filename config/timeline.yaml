@@ -409,48 +409,30 @@ custom:
       push: true
 
   periods:
-    morning_collect:
-      name: "早间采集"
-      start: "08:25"                  # 2026-08-04 08:00→08:25：紧贴推送窗口前采集
-      end: "08:39"
-      collect: true                # 推送前采集，供增量检测
-
     morning_increment:
       name: "早间增量推送"
       start: "08:40"
-      end: "09:00"                    # 2026-08-04 目标 8:50，窗口 08:40-09:00
+      end: "09:00"                    # 2026-08-06 取消独立采集窗口，推送窗口自带采集（collect:true）
       collect: true
       analyze: true
       ai_mode: "incremental"
       push: true
       report_mode: "incremental"
-
-    noon_collect:
-      name: "午间采集"
-      start: "11:45"                  # 2026-08-04 12:00→11:45：紧贴推送窗口前采集（避免与 12:00 推送重叠）
-      end: "11:59"
-      collect: true
 
     noon_increment:
       name: "午间增量推送"
       start: "12:00"
-      end: "12:20"                    # 2026-08-04 目标 12:00，窗口 12:00-12:20
+      end: "12:20"                    # 2026-08-06 取消独立采集窗口
       collect: true
       analyze: true
       ai_mode: "incremental"
       push: true
       report_mode: "incremental"
 
-    evening_collect:
-      name: "盘前采集"
-      start: "20:30"
-      end: "20:44"
-      collect: true
-
     closing_increment:
       name: "盘后增量推送"
       start: "20:45"
-      end: "21:05"                    # 2026-08-04 22:00→21:05：缩回 20 分钟窄窗口，目标 21:00
+      end: "21:05"                    # 2026-08-06 取消独立采集窗口
       collect: true
       analyze: true
       ai_mode: "incremental"
@@ -459,9 +441,9 @@ custom:
 
   day_plans:
     workday:
-      periods: ["morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment"]
+      periods: ["morning_increment", "noon_increment", "closing_increment"]
     weekend:
-      periods: ["morning_collect", "morning_increment", "noon_collect", "noon_increment", "evening_collect", "closing_increment"]
+      periods: ["morning_increment", "noon_increment", "closing_increment"]
 
   week_map:
     1: "workday"
